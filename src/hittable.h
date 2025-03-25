@@ -1,6 +1,7 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 #include "rtweekend.h"
+class material;
 
 class hit_record {
   public:
@@ -8,6 +9,7 @@ class hit_record {
     vec3 normal;   // Surface normal at hit point
     double t;      // Distance along ray to hit point
     bool front_face;
+    shared_ptr<material> mat;
 
     void set_face_normal(const ray& r, const vec3& outward_normal) {
         // Sets the hit record normal vector.
